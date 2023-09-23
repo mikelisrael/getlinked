@@ -15,7 +15,7 @@ const Register = () => {
         <title>Register | Getlinked</title>
       </Head>
 
-      <div className="relative universal_x grid md:grid-cols-[1fr,auto] items-center gap-5 md:gap-10 pt-12 pb-24">
+      <div className="isolate relative universal_x grid md:grid-cols-[1fr,auto] items-center gap-5 md:gap-10 pt-12 pb-24">
         <StarPurple positions="left-0 top-10" />
         <StarGray positions="left-0 bottom-20" />
         <PurpleFlare positions="-left-6 -top-10 " />
