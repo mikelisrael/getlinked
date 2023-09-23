@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unica+One&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* import clash display font from local public/fonts */
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-semibold.otf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --black-primary: #140d27;
+  --black-secondary: #100b20;
+  --primary-purple: #d434fe;
+  --tertiary-purple: #9437ff;
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "ClashDisplay", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  outline-color: transparent;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-primary);
+  scrollbar-gutter: stable;
+  @apply text-white bg-themeBlack text-xs md:text-sm lg:text-base overflow-x-hidden;
+}
+
+select {
+  -webkit-appearance: inherit;
+  appearance: inherit;
+}
+
+img {
+  user-select: none;
+}
+
+.universal_x {
+  @apply mx-auto max-w-7xl px-8 lg:px-16 xl:px-10;
+}
+
+.second_font {
+  font-family: var(--font-secondary);
+}
+
+.third_font {
+  font-family: "Unica One", cursive;
+}
+
+/* reverse grid column reverse */
+.reverse {
+  direction: rtl;
+}
+
+/* style button with tailwind */
+.main_btn {
+  @apply px-4 py-2 rounded-md bg-gradient-to-r from-secondaryPurple to-tertiaryPurple text-white text-xs md:text-sm lg:text-base hover:brightness-150 duration-200;
+}
+
+/* main btn but with transparent fill and gradient border instead */
+.main_btn_border {
+  /* gradient border */
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #d434fe, #ff26b9, #9437ff);
+  border-width: 2px;
+  @apply px-4 py-2 rounded-md bg-transparent text-white text-xs md:text-sm lg:text-base hover:brightness-150 duration-200;
+}
+
+.main_input {
+  @apply outline outline-1 outline-white px-4 py-2 bg-[#231C34] w-full text-white outline-none;
+}
+
+.stacked {
+  display: grid;
+  isolation: isolate;
+}
+
+.stacked > * {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+
+/* react-vertical-timeline-component */
+/* border around icon */
+.vertical-timeline-element-icon {
+  box-shadow:
+    0 0 0 4px var(--black-primary),
+    inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* underlying border */
+.vertical-timeline-element-content {
+  box-shadow: none !important;
+}
+
+/* custom middle line */
+.custom-line:before {
+  background: var(--primary-purple) !important;
+  width: 2px !important;
+}
