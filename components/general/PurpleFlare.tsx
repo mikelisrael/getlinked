@@ -12,7 +12,7 @@ const PurpleFlare = ({ positions }: { positions: string }) => {
     // />
 
     <div
-      className={`w-96 h-96 bg-primaryPurple rounded-full ${positions} -z-10 absolute blur-3xl opacity-30`}
+      className={`w-72 md:w-96 h-72 md:h-96 bg-primaryPurple rounded-full ${positions} -z-10 absolute blur-3xl opacity-30`}
     ></div>
   );
 };
