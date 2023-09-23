@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import PurpleFlare from "../general/PurpleFlare";
+import { StarGray, StarWhite } from "../general/Stars";
 
 const Header = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -57,7 +59,9 @@ const Header = () => {
 
   return (
     <header className="pt-10">
-      <div className="universal_x grid gap-y-5 md:grid-cols-[40%,60%] items-center">
+      <div className="isolate universal_x grid gap-y-5 md:grid-cols-[40%,60%] items-center">
+        <PurpleFlare positions="top-0 left-0" />
+
         <div className="mx-auto w-max md:hidden mb-7">
           <div className="flex md:hidden items-end flex-col">
             <em className=" block text-sm font-semibold">
@@ -73,8 +77,15 @@ const Header = () => {
           </div>
         </div>
 
-        <section>
-          <h1 className="relative second_font text-3xl md:text-5xl lg:text-7xl font-bold md:w-max text-center md:text-left">
+        <section className="isolate relative">
+          <StarWhite positions="left-0 -top-20" />
+          <StarGray positions="right-10 bottom-20 w-4" />
+          <StarGray positions="-right-20 -top-10" />
+
+          <h1
+            data-aos="flip-down"
+            className="relative second_font text-3xl md:text-5xl lg:text-7xl font-bold md:w-max text-center md:text-left"
+          >
             getlinked Te
             <span className="relative">
               c
@@ -83,6 +94,7 @@ const Header = () => {
                 width={53}
                 height={73}
                 alt="creative"
+                priority
                 className="w-6 lg:w-8 absolute right-0 -top-4 sm:-top-7 md:-top-8"
               />
             </span>
@@ -103,7 +115,11 @@ const Header = () => {
               className="w-7 md:w-9 lg:w-12 inline-block"
             />
           </h1>
-          <p className="mt-3 md:max-w-md text-center md:text-left">
+          <p
+            data-aos="flip-down"
+            data-aos-duration={1000}
+            className="mt-3 md:max-w-md text-center md:text-left"
+          >
             Participate in getlinked tech Hackathon 2023 stand a chance to win a
             Big prize.
           </p>
@@ -136,7 +152,10 @@ const Header = () => {
         </section>
 
         <section className="flex flex-col items-center gap-10">
-          <div className="hidden md:flex items-end flex-col">
+          <div
+            data-aos="fade-left"
+            className="hidden md:flex items-end flex-col"
+          >
             <em className="block text-lg lg:text-2xl font-semibold">
               Igniting a Revolution in HR Innovation
             </em>
