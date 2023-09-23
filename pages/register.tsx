@@ -1,13 +1,93 @@
 import PurpleFlare from "@/components/general/PurpleFlare";
 import { StarGray, StarPurple, StarWhite } from "@/components/general/Stars";
-import { Modal } from "@mui/material";
+import isValidEmail from "@/utils/isValidEmail";
+import { Checkbox, Modal } from "@mui/material";
+import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
+import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { toast } from "react-toastify";
+import phoneMask from "./phoneMask";
 
 const Register = () => {
   const [open, setOpen] = useState(false);
+  const [formFields, setFormFields] = useState({
+    email: "",
+    phone_number: "",
+    team_name: "",
+    group_size: "",
+    project_topic: "",
+    category: "",
+    privacy_poclicy_accepted: false,
+  });
+  const [emailMsg, setEmailMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormFields((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(false);
+
+    const url = "https://backend.getlinked.ai/hackathon/registration";
+
+    const dataBody = {
+      ...formFields,
+      phone_number: formFields.phone_number.replace(/\s/g, ""),
+      privacy_poclicy_accepted: true,
+    };
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataBody),
+      });
+
+      const data = await res.json();
+
+      if (data) {
+        setFormFields({
+          email: "",
+          phone_number: "",
+          team_name: "",
+          group_size: "",
+          project_topic: "",
+          category: "",
+          privacy_poclicy_accepted: false,
+        });
+        setIsSubmitting(false);
+        setOpen(true);
+      }
+    } catch (error) {
+      toast.error("Something went wrong, please try again", {
+        toastId: "error-request",
+      });
+    }
+  };
+
+  const isDisabled: boolean =
+    isSubmitting ||
+    !!emailMsg ||
+    !formFields.email ||
+    !formFields.phone_number ||
+    !formFields.team_name ||
+    !formFields.group_size ||
+    !formFields.project_topic ||
+    !formFields.category ||
+    !formFields.privacy_poclicy_accepted;
 
   return (
     <>
@@ -63,35 +143,54 @@ const Register = () => {
             CREATE YOUR ACCOUNT
           </h1>
 
-          <form
-            className="mt-8"
-            autoComplete="off"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <section className="grid grid-cols-2 gap-4 md:gap-6">
+          <form className="mt-8" autoComplete="off" onSubmit={handleSubmit}>
+            <section className="grid grid-cols-2 gap-4 md:gap-x-6 md:gap-y-8">
               <div className="col-span-2 md:col-span-1">
                 <span className="font-medium mb-2 block">Team’s Name</span>
                 <input
                   type="text"
                   className="main_input"
                   placeholder="Enter the name of your group"
+                  name="team_name"
+                  onChange={handleChange}
+                  value={formFields.team_name}
                 />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <span className="font-medium mb-2 block">Team’s Name</span>
+                <span className="font-medium mb-2 block">Phone</span>
                 <input
                   type="text"
                   className="main_input"
                   placeholder="Enter your phone number"
+                  name="phone_number"
+                  onChange={(e) => handleChange(phoneMask(e))}
+                  value={formFields.phone_number}
                 />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <span className="font-medium mb-2 block">Team’s Name</span>
+                <span className="font-medium mb-2 block">Email</span>
                 <input
                   type="email"
                   className="main_input"
                   placeholder="Enter your email address"
+                  name="email"
+                  onChange={handleChange}
+                  value={formFields.email}
+                  onInput={(e) => {
+                    const email = e.currentTarget.value;
+                    if (!isValidEmail(email)) {
+                      setEmailMsg("Invalid email");
+                    } else {
+                      setEmailMsg("");
+                    }
+                  }}
                 />
+                {emailMsg && (
+                  <span className="text-red-400 flex gap-1 !mt-3 md:text-sm">
+                    <HiOutlineExclamationCircle className="text-lg" />{" "}
+                    {emailMsg}
+                  </span>
+                )}
               </div>
               <div className="col-span-2 md:col-span-1">
                 <span className="font-medium mb-2 block">Project Topic</span>
@@ -99,6 +198,9 @@ const Register = () => {
                   type="text"
                   className="main_input"
                   placeholder="What is your group project topic"
+                  name="project_topic"
+                  onChange={handleChange}
+                  value={formFields.project_topic}
                 />
               </div>
               <div>
@@ -107,8 +209,16 @@ const Register = () => {
                   <span className="absolute right-3 top-4">
                     <FaAngleDown />
                   </span>
-                  <select className="main_input">
-                    <option value="1">Select a category</option>
+                  <select
+                    className="main_input"
+                    name="category"
+                    onChange={handleChange}
+                    value={formFields.category}
+                  >
+                    <option value="">Select a category</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                   </select>
                 </div>
               </div>
@@ -118,8 +228,18 @@ const Register = () => {
                   <span className="absolute right-3 top-4">
                     <FaAngleDown />
                   </span>
-                  <select className="main_input">
-                    <option value="1">Select</option>
+                  <select
+                    className="main_input"
+                    name="group_size"
+                    onChange={handleChange}
+                    value={formFields.group_size}
+                  >
+                    <option value="">Select</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
                   </select>
                 </div>
               </div>
@@ -129,36 +249,42 @@ const Register = () => {
               Please review your registration details before submitting
             </em>
 
-            {/* <div className="mt-6 text-sm">
-            <Checkbox
-              name="autoDebit"
-              //   checked={isAutoDebitSelected}
-              checked={false}
-              //   onChange={handleCheckboxChange}
-              sx={{
-                "&.Mui-checked": {
-                  color: "#d434fe",
-                },
-                "&.MuiCheckbox-root": {
-                  border: "1px solid white",
-                },
-              }}
-            />
-            <input
-              type="checkbox"
-              className="border border-white !bg-themeBlack text-themeBlack"
-              id=""
-            />
-            <span>
-              I agreed with the event terms and conditions and privacy policy
-            </span>
-          </div> */}
+            <label className="!mt-3 text-sm flex">
+              <div className="stacked">
+                <div className="p-2 w-4 h-4 border-2 rounded-sm border-white" />
+                {/* white border checkbox */}
+                <Checkbox
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#d434fe",
+                    },
+                  }}
+                  checked={formFields.privacy_poclicy_accepted}
+                  onChange={(e) =>
+                    setFormFields((prev) => ({
+                      ...prev,
+                      privacy_poclicy_accepted: e.target.checked,
+                    }))
+                  }
+                  className="!border-white !rounded-sm !w-5 !h-5 !border-2 !mr-2"
+                />
+              </div>
+              <span>
+                I agreed with the event terms and conditions and privacy policy
+              </span>
+            </label>
 
             <button
-              onClick={() => setOpen(true)}
+              disabled={isDisabled}
               className="main_btn mt-4 md:mt-7 w-full !py-3 z-10"
             >
-              Register Now
+              {isSubmitting ? (
+                <center className="w-full">
+                  <LeapFrog size={28} speed={0.9} color="white" />
+                </center>
+              ) : (
+                <span>Register Now</span>
+              )}
             </button>
           </form>
 
