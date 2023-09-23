@@ -9,9 +9,9 @@
 @font-face {
   font-family: "ClashDisplay";
   src: url("../public/fonts/ClashDisplay-Semibold.otf");
-  font-weight: 600;
+  /* font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; */
 }
 
 :root {
