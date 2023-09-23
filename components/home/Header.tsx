@@ -12,12 +12,16 @@ const Header = () => {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();
-      const tomorrow = new Date(now);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      tomorrow.setHours(0, 0, 0, 0);
+      const targetDate = new Date(
+        Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 26, 0, 0, 0)
+      ); // Set your target date here
 
-      const difference = tomorrow.getTime() - now.getTime();
-      let timeLeft = {};
+      const difference = targetDate.getTime() - now.getTime();
+      let timeLeft = {
+        hours: "00",
+        minutes: "00",
+        seconds: "00",
+      };
 
       if (difference > 0) {
         timeLeft = {
@@ -33,9 +37,14 @@ const Header = () => {
             "0"
           ),
         };
+      } else {
+        timeLeft = {
+          hours: "00",
+          minutes: "00",
+          seconds: "00",
+        };
       }
 
-      // @ts-ignore
       setTimeLeft(timeLeft);
     };
 
