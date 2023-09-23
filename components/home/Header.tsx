@@ -14,9 +14,7 @@ const Header = () => {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();
-      const targetDate = new Date(
-        Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 26, 0, 0, 0)
-      ); // Set your target date here
+      const targetDate = new Date("September 26, 2023 00:00:00");
 
       const difference = targetDate.getTime() - now.getTime();
       let timeLeft = {
@@ -27,9 +25,10 @@ const Header = () => {
 
       if (difference > 0) {
         timeLeft = {
-          hours: String(
-            Math.floor((difference / (1000 * 60 * 60)) % 24)
-          ).padStart(2, "0"),
+          hours: String(Math.floor(difference / (1000 * 60 * 60))).padStart(
+            2,
+            "0"
+          ),
           minutes: String(Math.floor((difference / 1000 / 60) % 60)).padStart(
             2,
             "0"
