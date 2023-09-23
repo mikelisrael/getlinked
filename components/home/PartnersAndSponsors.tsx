@@ -17,7 +17,7 @@ const PartnersAndSponsors = () => {
 
         <div className="relative mt-10 md:mt-20">
           <PurpleFlare positions="-right-48 -bottom-56" />
-          <PurpleFlare positions="-left-48 -top-56" />
+          <PurpleFlare positions="-left-48 -top-56 !z-10" />
           <StarPurple positions="left-32 -top-24" />
           <StarPurple positions="left-1/2 top-24 w-4" />
           <StarWhite positions="hidden md:block left-[55%] bottom-20" />
