@@ -89,7 +89,7 @@ img {
 }
 
 .main_input {
-  @apply outline outline-1 outline-white px-4 py-2 bg-[#231C34] w-full text-white outline-none;
+  @apply outline outline-1 outline-white px-4 py-2 bg-transparent w-full text-white outline-none;
 }
 
 .gradient_text {
@@ -102,6 +102,17 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bolder;
+}
+
+/* style react toastify */
+.Toastify__toast {
+  font-family: var(--font-primary) !important;
+  @apply !rounded-lg !text-sm;
+}
+
+/* capitalize first text in toast  */
+.Toastify__toast-body > div:nth-child(2):first-letter {
+  text-transform: capitalize;
 }
 
 .stacked {
