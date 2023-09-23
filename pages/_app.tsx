@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { Slide, ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
   // initialize the animation library
@@ -97,6 +99,19 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <Footer />
       </div>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        transition={Slide}
+        theme="colored"
+      />
     </>
   );
 }
