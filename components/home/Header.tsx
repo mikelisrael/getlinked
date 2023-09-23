@@ -9,10 +9,11 @@ const Header = () => {
           getlinked Te
           <span className="relative">
             c
-            <Image
+            <img
+              loading="eager"
               src="/icons/creative.png"
-              width={53}
-              height={73}
+              // width={53}
+              // height={73}
               alt="creative"
               className="w-6 lg:w-8 absolute right-0 -top-5 sm:-top-7 md:-top-8"
             />
