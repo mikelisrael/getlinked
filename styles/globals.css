@@ -53,7 +53,8 @@ img {
 }
 
 .second_font {
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
+  font-weight: 700;
 }
 
 .third_font {
