@@ -76,6 +76,7 @@ const Contact = () => {
 
   const isDisabled =
     isSubmitting ||
+    !!emailMsg ||
     !formFields.first_name ||
     !formFields.phone_number ||
     !formFields.email ||
