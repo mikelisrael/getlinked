@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const PurpleFlare = ({ positions }: { positions: string }) => {
   return (
     // <Image
@@ -12,8 +10,9 @@ const PurpleFlare = ({ positions }: { positions: string }) => {
     // />
 
     <div
-      className={`w-72 md:w-96 h-72 md:h-96 bg-primaryPurple rounded-full ${positions} -z-10 absolute blur-3xl opacity-30`}
-    ></div>
+      data-aos="fade-in"
+      className={`w-72 md:w-96 h-72 md:h-96 bg-primaryPurple rounded-full ${positions} -z-10 absolute blur-3xl !opacity-30`}
+    />
   );
 };
 
