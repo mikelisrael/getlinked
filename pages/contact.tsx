@@ -1,6 +1,7 @@
 import PurpleFlare from "@/components/general/PurpleFlare";
 import { StarPurple, StarWhite } from "@/components/general/Stars";
 import Head from "next/head";
+import { useState } from "react";
 import {
   FaFacebookF,
   FaInstagram,
@@ -9,6 +10,52 @@ import {
 } from "react-icons/fa6";
 
 const Contact = () => {
+  const [formFields, setFormFields] = useState({
+    first_name: "",
+    phone_number: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const url = "https://backend.getlinked.ai/hackathon/contact-form";
+
+    if (
+      formFields.first_name &&
+      formFields.phone_number &&
+      formFields.email &&
+      formFields.message
+    ) {
+      // Submit post request to the URL using form fields as data
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formFields),
+      });
+
+      const data = await res.json();
+
+      console.log(data);
+
+      // check if response is 200 it's successful
+      if (res.status === 200) {
+        alert("Message sent successfully");
+      } else {
+        alert("Something went wrong");
+      }
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setFormFields((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <>
       <Head>
@@ -76,23 +123,51 @@ const Contact = () => {
           <form
             className="mt-8 space-y-7"
             autoComplete="off"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
-            <input type="text" className="main_input" placeholder="Full name" />
-            <input type="email" className="main_input" placeholder="Email" />
+            <input
+              type="text"
+              className="main_input"
+              placeholder="First Name"
+              name="first_name"
+              onChange={handleChange}
+              value={formFields.first_name}
+            />
+            <input
+              type="text"
+              className="main_input"
+              placeholder="Phone number"
+              name="phone_number"
+              onChange={handleChange}
+              value={formFields.phone_number}
+            />
+            <input
+              type="email"
+              className="main_input"
+              placeholder="Email"
+              name="email"
+              onChange={handleChange}
+              value={formFields.email}
+            />
             <textarea
               placeholder="Message"
               className="main_input resize-none"
               cols={30}
               rows={5}
+              name="message"
+              // @ts-ignore
+              onChange={handleChange}
+              value={formFields.message}
             ></textarea>
             <center>
-              <button className="main_btn !px-6">Submit</button>
+              <button type="submit" className="main_btn !px-6">
+                Submit
+              </button>
             </center>
           </form>
         </section>
 
-        <div className="mt-5 flex flex-col gap-2 md:hidden items-center justify-center">
+        <div className="mt-3 flex flex-col gap-2 md:hidden items-center justify-center">
           <span className="text-primaryPurple">Share on</span>
           <ul className="flex gap-3 mt-1">
             <li className="hover:text-primaryPurple text-base md:text-xl cursor-pointer">
