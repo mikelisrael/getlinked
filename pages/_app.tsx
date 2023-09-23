@@ -1,11 +1,11 @@
 import Footer from "@/components/general/Footer";
 import Navbar from "@/components/general/Navbar";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   // initialize the animation library
@@ -60,7 +60,10 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:description"
           content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future."
         />
-        <meta property="og:image" content="/img/OG_CARD.png" />
+        <meta
+          property="og:image"
+          content="https://getlinked-lime.vercel.app/img/OG_CARD.png"
+        />
 
         {/* Twitter Meta Tags  */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +74,10 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:description"
           content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future."
         />
-        <meta name="twitter:image" content="/img/OG_CARD.png" />
+        <meta
+          name="twitter:image"
+          content="https://getlinked-lime.vercel.app/img/OG_CARD.png"
+        />
 
         {/* Favicon */}
         <link rel="icon" href="/icon_favicon/favicon.ico" />
