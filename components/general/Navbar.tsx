@@ -43,7 +43,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 shadow-sm shadow-white/5 ease-in-out duration-300 bg-themeBlack z-50 py-5 md:py-10 ${
+      className={`sticky top-0 ease-in-out duration-300 ${
+        lastScrollTop !== 0 && "bg-themeBlack shadow-sm shadow-white/5"
+      } z-50 py-5 md:py-10 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
