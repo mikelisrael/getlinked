@@ -92,6 +92,17 @@ img {
   @apply outline outline-1 outline-white px-4 py-2 bg-[#231C34] w-full text-white outline-none;
 }
 
+.gradient_text {
+  color: var(--primary-purple);
+  background: linear-gradient(
+    to right,
+    var(--tertiary-purple),
+    var(--primary-purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .stacked {
   display: grid;
   isolation: isolate;

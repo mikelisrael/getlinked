@@ -74,8 +74,7 @@ const Navbar = () => {
           </li>
           <li
             className={`${
-              router.pathname === "/contact" &&
-              "font-medium text-transparent bg-clip-text bg-gradient-to-r from-tertiaryPurple to-primaryPurple"
+              router.pathname === "/contact" && "gradient_text"
             } hover:text-primaryPurple cursor-pointer `}
           >
             <Link href="/contact">Contact</Link>
