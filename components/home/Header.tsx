@@ -1,64 +1,154 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-  return (
-    <header className="py-20">
-      <div className="universal_x">
-        <h1 className="relative second_font text-3xl md:text-5xl lg:text-7xl font-bold sm:w-max text-center sm:text-left">
-          getlinked Te
-          <span className="relative">
-            c
-            <Image
-              src="/icons/Creative.png"
-              width={53}
-              height={73}
-              alt="creative"
-              className="w-6 lg:w-8 absolute right-0 -top-5 sm:-top-7 md:-top-8"
-            />
-          </span>
-          h <br /> Hackathon
-          <span className="text-primaryPurple"> 1.0</span>
-          <Image
-            src="/icons/chain.png"
-            width={86}
-            height={86}
-            alt="creative"
-            className="w-7 md:w-9 lg:w-12 inline-block"
-          />
-          <Image
-            src="/icons/explosion.png"
-            width={58}
-            height={58}
-            alt="creative"
-            className="w-7 md:w-9 lg:w-12 inline-block"
-          />
-        </h1>
-        <p className="mt-3 sm:max-w-md text-center sm:text-left">
-          Participate in getlinked tech Hackathon 2023 stand a chance to win a
-          Big prize.
-        </p>
+  const [timeLeft, setTimeLeft] = useState({
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
 
-        <div className=" flex items-center justify-center sm:justify-start mt-7 md:mt-10">
-          <Link href="/register" className="w-max main_btn !px-7">
-            Register
-          </Link>
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(0, 0, 0, 0);
+
+      const difference = tomorrow.getTime() - now.getTime();
+      let timeLeft = {};
+
+      if (difference > 0) {
+        timeLeft = {
+          hours: String(
+            Math.floor((difference / (1000 * 60 * 60)) % 24)
+          ).padStart(2, "0"),
+          minutes: String(Math.floor((difference / 1000 / 60) % 60)).padStart(
+            2,
+            "0"
+          ),
+          seconds: String(Math.floor((difference / 1000) % 60)).padStart(
+            2,
+            "0"
+          ),
+        };
+      }
+
+      // @ts-ignore
+      setTimeLeft(timeLeft);
+    };
+
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return (
+    <header className="pt-10">
+      <div className="universal_x grid gap-y-5 md:grid-cols-[40%,60%] items-center">
+        <div className="mx-auto w-max md:hidden mb-7">
+          <div className="flex md:hidden items-end flex-col">
+            <em className=" block text-sm font-semibold">
+              Igniting a Revolution in HR Innovation
+            </em>
+            <Image
+              src="/img/underline.png"
+              width={255}
+              height={17}
+              alt="underline"
+              className="w-1/2 mt-1"
+            />
+          </div>
         </div>
 
-        <ul className="mt-8 md:mt-16 flex justify-center sm:justify-start gap-2">
-          <li>
-            <span className="third_font text-4xl md:text-7xl">00</span>
-            <span>H</span>
-          </li>
-          <li>
-            <span className="third_font text-4xl md:text-7xl">00</span>
-            <span>M</span>
-          </li>
-          <li>
-            <span className="third_font text-4xl md:text-7xl">00</span>
-            <span>S</span>
-          </li>
-        </ul>
+        <section>
+          <h1 className="relative second_font text-3xl md:text-5xl lg:text-7xl font-bold md:w-max text-center md:text-left">
+            getlinked Te
+            <span className="relative">
+              c
+              <Image
+                src="/icons/Creative.png"
+                width={53}
+                height={73}
+                alt="creative"
+                className="w-6 lg:w-8 absolute right-0 -top-4 sm:-top-7 md:-top-8"
+              />
+            </span>
+            h <br /> Hackathon
+            <span className="text-primaryPurple"> 1.0</span>
+            <Image
+              src="/icons/chain.png"
+              width={86}
+              height={86}
+              alt="chain"
+              className="w-7 md:w-9 lg:w-12 inline-block"
+            />
+            <Image
+              src="/icons/explosion.png"
+              width={58}
+              height={58}
+              alt="explosion"
+              className="w-7 md:w-9 lg:w-12 inline-block"
+            />
+          </h1>
+          <p className="mt-3 md:max-w-md text-center md:text-left">
+            Participate in getlinked tech Hackathon 2023 stand a chance to win a
+            Big prize.
+          </p>
+          <div className=" flex items-center justify-center md:justify-start mt-7 md:mt-10">
+            <Link href="/register" className="w-max main_btn !px-7">
+              Register
+            </Link>
+          </div>
+          {/* timer */}
+          <ul className="mt-8 md:mt-16 flex justify-center md:justify-start gap-2">
+            <li>
+              <span className="third_font text-4xl md:text-7xl">
+                {timeLeft.hours}
+              </span>
+              <span>H</span>
+            </li>
+            <li>
+              <span className="third_font text-4xl md:text-7xl">
+                {timeLeft.minutes}
+              </span>
+              <span>M</span>
+            </li>
+            <li>
+              <span className="third_font text-4xl md:text-7xl">
+                {timeLeft.seconds}
+              </span>
+              <span>S</span>
+            </li>
+          </ul>
+        </section>
+
+        <section className="flex flex-col items-center gap-10">
+          <div className="hidden md:flex items-end flex-col">
+            <em className="block text-lg lg:text-2xl font-semibold">
+              Igniting a Revolution in HR Innovation
+            </em>
+            <Image
+              src="/img/underline.png"
+              width={255}
+              height={17}
+              alt="underline"
+              className="w-1/2 mt-1"
+            />
+          </div>
+
+          <Image
+            src="/img/tech_boy.png"
+            width={1000}
+            height={1000}
+            alt="tech boy"
+            className="w-full"
+            onContextMenu={(e) => e.preventDefault()}
+          />
+        </section>
       </div>
     </header>
   );
