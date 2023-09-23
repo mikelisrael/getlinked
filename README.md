@@ -1,3 +1,5 @@
+<img src="/public/img/OG_CARD.png" alt="header" width="100%">
+
 # GetLinked Tech Hackathon 2023
 
 Welcome to the GetLinked Tech Hackathon 2023!
@@ -11,8 +13,6 @@ Welcome to the GetLinked Tech Hackathon 2023!
 
 Participate in GetLinked Tech Hackathon 2023 and stand a chance to win a big prize.
 [Register Now](#)
-
-![Countdown](insert_countdown_timer_here)
 
 ## Igniting a Revolution in HR Innovation
 
