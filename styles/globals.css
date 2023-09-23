@@ -18,6 +18,7 @@
   --black-primary: #140d27;
   --black-secondary: #100b20;
   --primary-purple: #d434fe;
+  --secondary-purple: #ff26b9;
   --tertiary-purple: #9437ff;
   --font-primary: "Montserrat", sans-serif;
   --font-secondary: "ClashDisplay", sans-serif;
@@ -69,11 +70,18 @@ img {
 /* style button with tailwind */
 .main_btn {
   @apply px-4 py-2 rounded-md bg-gradient-to-r from-secondaryPurple to-tertiaryPurple text-white text-xs md:text-sm lg:text-base hover:brightness-150 duration-200;
+  background-color: var(--primary-purple);
+  background: linear-gradient(
+    to right,
+    var(--secondary-purple),
+    var(--tertiary-purple)
+  );
 }
 
 /* main btn but with transparent fill and gradient border instead */
 .main_btn_border {
   /* gradient border */
+  border-color: var(--primary-purple);
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, #d434fe, #ff26b9, #9437ff);
   border-width: 2px;
