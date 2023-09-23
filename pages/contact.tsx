@@ -62,7 +62,7 @@ const Contact = () => {
         <title>Contact | Getlinked</title>
       </Head>
 
-      <div className="relative universal_x grid md:grid-cols-2 items-center gap-10 pt-12 pb-24">
+      <div className="isolate relative universal_x grid md:grid-cols-2 items-center gap-10 pt-12 pb-24">
         <StarPurple positions="left-0 top-10" />
         <PurpleFlare positions="-left-10 top-10 " />
 
