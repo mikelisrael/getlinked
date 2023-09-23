@@ -60,7 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:description"
           content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future."
         />
-        <meta property="og:image" content="/img/OG_card.png" />
+        <meta property="og:image" content="/img/OG_CARD.png" />
 
         {/* Twitter Meta Tags  */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -71,7 +71,7 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:description"
           content="Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future."
         />
-        <meta name="twitter:image" content="/img/OG_card.png" />
+        <meta name="twitter:image" content="/img/OG_CARD.png" />
 
         {/* Favicon */}
         <link rel="icon" href="/icon_favicon/favicon.ico" />
