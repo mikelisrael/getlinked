@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa6";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
-import phoneMask from "./phoneMask";
+import phoneMask from "../utils/phoneMask";
 
 const Contact = () => {
   const [formFields, setFormFields] = useState({

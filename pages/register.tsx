@@ -9,7 +9,7 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
-import phoneMask from "./phoneMask";
+import phoneMask from "../utils/phoneMask";
 
 const Register = () => {
   const [open, setOpen] = useState(false);
