@@ -60,25 +60,25 @@ const FAQs = () => {
 
           <div className="mt-7 md:mt-14 space- y-3 md:space-y-6">
             {questions.map((question, index) => (
-              <Accordion
-                data-aos="fade-up"
-                key={index}
-                expanded={expanded === `panel${index}`}
-                onChange={handleChange(`panel${index}`)}
-                className="!bg-transparent !shadow-none border-b border-primaryPurple !rounded-none"
-              >
-                <AccordionSummary
-                  expandIcon={<AddIcon className="text-primaryPurple" />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                  className="!p-0"
+              <div data-aos="fade-up" key={index}>
+                <Accordion
+                  expanded={expanded === `panel${index}`}
+                  onChange={handleChange(`panel${index}`)}
+                  className="!bg-transparent !shadow-none border-b border-primaryPurple !rounded-none"
                 >
-                  <h4 className="text-white">{question.question}</h4>
-                </AccordionSummary>
-                <AccordionDetails className="!p-0">
-                  <p className="text-white pb-2">{question.answer}</p>
-                </AccordionDetails>
-              </Accordion>
+                  <AccordionSummary
+                    expandIcon={<AddIcon className="text-primaryPurple" />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    className="!p-0"
+                  >
+                    <h4 className="text-white">{question.question}</h4>
+                  </AccordionSummary>
+                  <AccordionDetails className="!p-0">
+                    <p className="text-white pb-2">{question.answer}</p>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
             ))}
           </div>
         </section>
