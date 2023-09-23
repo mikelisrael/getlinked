@@ -1,5 +1,7 @@
 import PurpleFlare from "@/components/general/PurpleFlare";
 import { StarPurple, StarWhite } from "@/components/general/Stars";
+import isValidEmail from "@/utils/isValidEmail";
+import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
 import { useState } from "react";
 import {
@@ -8,6 +10,9 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
+import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { toast } from "react-toastify";
+import phoneMask from "./phoneMask";
 
 const Contact = () => {
   const [formFields, setFormFields] = useState({
@@ -16,37 +21,50 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailMsg, setEmailMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const url = "https://backend.getlinked.ai/hackathon/contact-form";
 
-    if (
-      formFields.first_name &&
-      formFields.phone_number &&
-      formFields.email &&
-      formFields.message
-    ) {
-      // Submit post request to the URL using form fields as data
+    const dataBody = {
+      ...formFields,
+      phone_number: formFields.phone_number.replace(/\s/g, ""),
+    };
+
+    try {
+      // Submit post request to the URL using form fields as dataBody
       const res = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formFields),
+        body: JSON.stringify(dataBody),
       });
 
       const data = await res.json();
 
-      console.log(data);
-
-      // check if response is 200 it's successful
-      if (res.status === 200) {
-        alert("Message sent successfully");
+      // check
+      if (data) {
+        toast.success("Message sent successfully", {
+          toastId: "success-request",
+        });
+        setFormFields({
+          first_name: "",
+          phone_number: "",
+          email: "",
+          message: "",
+        });
       } else {
-        alert("Something went wrong");
+        toast.error("Something went wrong", { toastId: "error-request" });
       }
+    } catch (error) {
+      alert("Something went wrong");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -56,15 +74,22 @@ const Contact = () => {
     setFormFields((prev) => ({ ...prev, [name]: value }));
   };
 
+  const isDisabled =
+    isSubmitting ||
+    !formFields.first_name ||
+    !formFields.phone_number ||
+    !formFields.email ||
+    !formFields.message;
+
   return (
     <>
       <Head>
         <title>Contact | Getlinked</title>
       </Head>
 
-      <div className="isolate relative universal_x grid md:grid-cols-2 items-center gap-10 pt-12 pb-24">
+      <div className="isolate relative universal_x grid md:grid-cols-[40%,60%] lg:grid-cols-2 items-center gap-10 pt-12 pb-24">
         <StarPurple positions="left-0 top-10" />
-        <PurpleFlare positions="-left-10 top-10 " />
+        <PurpleFlare positions="-left-10 top-20 " />
 
         <section className="hidden md:block">
           <h1 className="second_font text-primaryPurple font-bold text-2xl md:text-4xl">
@@ -81,10 +106,10 @@ const Contact = () => {
               27,Alara Street <br /> Yaba 100012 <br /> Lagos State
             </p>
 
-            <p>Call Us : 07067981819</p>
+            <p>Call Us : 0706 798 1819</p>
 
             <p>
-              we are open from Monday-Friday <br /> 08:00am - 05:00pm
+              We are open from Monday - Friday <br /> 08:00am - 05:00pm
             </p>
 
             <div>
@@ -109,7 +134,7 @@ const Contact = () => {
 
         <section className="relative isolate md:p-8 lg:p-16 md:bg-[#1C152E] md:shadow-md">
           <StarPurple positions="-left-6 bottom-1/2 w-6" />
-          <StarWhite positions="right-0 bottom-0 w-6" />
+          <StarWhite positions="right-[7%] bottom-0 w-4" />
           <PurpleFlare positions="-right-40 -bottom-40" />
 
           <h2 className="second_font text-primaryPurple font-bold text-xl md:text-2xl">
@@ -138,7 +163,7 @@ const Contact = () => {
               className="main_input"
               placeholder="Phone number"
               name="phone_number"
-              onChange={handleChange}
+              onChange={(e) => handleChange(phoneMask(e))}
               value={formFields.phone_number}
             />
             <input
@@ -148,7 +173,20 @@ const Contact = () => {
               name="email"
               onChange={handleChange}
               value={formFields.email}
+              onInput={(e) => {
+                const email = e.currentTarget.value;
+                if (!isValidEmail(email)) {
+                  setEmailMsg("Invalid email");
+                } else {
+                  setEmailMsg("");
+                }
+              }}
             />
+            {emailMsg && (
+              <span className="text-red-400 flex gap-1 !mt-3 md:text-sm">
+                <HiOutlineExclamationCircle className="text-lg" /> {emailMsg}
+              </span>
+            )}
             <textarea
               placeholder="Message"
               className="main_input resize-none"
@@ -160,8 +198,18 @@ const Contact = () => {
               value={formFields.message}
             ></textarea>
             <center>
-              <button type="submit" className="main_btn !px-6">
-                Submit
+              <button
+                disabled={isDisabled}
+                type="submit"
+                className="main_btn min-w-[6rem] !px-6"
+              >
+                {isSubmitting ? (
+                  <center className="w-full">
+                    <LeapFrog size={28} speed={0.9} color="white" />
+                  </center>
+                ) : (
+                  <span>Submit</span>
+                )}
               </button>
             </center>
           </form>
