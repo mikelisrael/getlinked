@@ -15,8 +15,8 @@ const PartnersAndSponsors = () => {
           companies as its partners and sponsors
         </p>
 
-        <div className="relative mt-10 md:mt-20">
-          <PurpleFlare positions="-right-48 -bottom-56" />
+        <div className="relative isolate mt-10 md:mt-20">
+          <PurpleFlare positions="-right-48 -bottom-56 !z-10" />
           <PurpleFlare positions="-left-48 -top-56 !z-10" />
           <StarPurple positions="left-32 -top-24" />
           <StarPurple positions="left-1/2 top-24 w-4" />

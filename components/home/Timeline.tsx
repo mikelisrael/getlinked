@@ -40,7 +40,7 @@ const Timeline = () => {
   ];
 
   return (
-    <div id="timeline" className="relative py-10 md:py-20">
+    <div id="timeline" className="isolate relative py-10 md:py-20">
       <StarPurple positions="left-56 top-56" />
 
       <div className="universal_x">
