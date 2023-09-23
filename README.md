@@ -1,40 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GetLinked Tech Hackathon 2023
 
-## Getting Started
+Welcome to the GetLinked Tech Hackathon 2023!
 
-First, run the development server:
+- [Timeline](#timeline)
+- [Overview](#overview)
+- [FAQs](#faqs)
+- [Contact](#contact)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Register
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Participate in GetLinked Tech Hackathon 2023 and stand a chance to win a big prize.
+[Register Now](#)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+![Countdown](insert_countdown_timer_here)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Igniting a Revolution in HR Innovation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Introduction to GetLinked Tech Hackathon 1.0
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!
 
-## Learn More
+### Rules and Guidelines
 
-To learn more about Next.js, take a look at the following resources:
+Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Judging Criteria
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Key attributes for judging your project:
 
-## Deploy on Vercel
+- **Innovation and Creativity:** Evaluate the uniqueness and creativity of the solution. Consider whether it addresses a real-world problem in a novel way or introduces innovative features.
+- **Functionality:** Assess how well the solution works. Does it perform its intended functions effectively and without major issues? Judges would consider the completeness and robustness of the solution.
+- **Impact and Relevance:** Determine the potential impact of the solution in the real world. Does it address a significant problem, and is it relevant to the target audience? Judges would assess the potential social, economic, or environmental benefits.
+- **Technical Complexity:** Evaluate the technical sophistication of the solution. Judges would consider the complexity of the code, the use of advanced technologies or algorithms, and the scalability of the solution.
+- **Adherence to Hackathon Rules:** Judges will ensure that the team adhered to the rules and guidelines of the hackathon, including deadlines, use of specific technologies or APIs, and any other competition-specific requirements.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Frequently Asked Questions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+We've got answers to the questions that you might want to ask about GetLinked Hackathon 1.0.
+
+## Timeline
+
+Here is the breakdown of the time we anticipate using for the upcoming event.
+
+## Prizes and Rewards
+
+Highlight of the prizes or rewards for winners and for participants.
+
+## Partners and Sponsors
+
+GetLinked Hackathon 1.0 is honored to have the following major companies as its partners and sponsors.
+
+## Privacy Policy and Terms
+
+Last updated on September 12, 2023
+
+Below are our privacy & policy, which outline a lot of goodies. It's our aim to always take care of our participants.
+
+At GetLinked Tech Hackathon 1.0, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you participate in our tech hackathon event. By participating in our event, you consent to the practices described in this policy.
+
+## Licensing Policy
+
+Here are terms of our Standard License:
+
+- The Standard License grants you a non-exclusive right to navigate and register for our event.
+
+## Terms of Use | Privacy Policy
+
+### Useful Links
+
+- [Timeline](#timeline)
+- [Overview](#overview)
+- [FAQs](#faqs)
+- [Contact](#contact)
+- [Register](#)
+- Follow us
+
+## Contact Us
+
+- Phone: +234 679 81819
+- Address:
+  27, Alara Street
+  Yaba 100012
+  Lagos State
+
+All rights reserved. © GetLinked Ltd.
