@@ -6,8 +6,8 @@ import "aos/dist/aos.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { Slide, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   // initialize the animation library
@@ -92,7 +92,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <Navbar />
 
-      <div className="relative grid min-h-screen grid-rows-[1fr,auto]">
+      <div className="relative grid min-h-screen grid-rows-[1fr,auto] w-full max-w-full min-w-0">
         <main className="relative">
           <Component {...pageProps} />
         </main>

@@ -10,7 +10,7 @@ import Timeline from "@/components/home/Timeline";
 
 const Home = () => {
   return (
-    <>
+    <div className="overflow-hidden">
       <Header />
       <Introduction />
       <RulesAndGuidelines />
@@ -20,7 +20,7 @@ const Home = () => {
       <PrizesAndRewards />
       <PartnersAndSponsors />
       <PrivatePolicyAndTerms />
-    </>
+    </div>
   );
 };
 
