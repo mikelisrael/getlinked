@@ -9,7 +9,7 @@ const PrivatePolicyAndTerms = () => {
         <section className="relative">
           <PurpleFlare positions="-left-48 -bottom-56 !z-10" />
           <StarGray positions="left-32 -top-24" />
-          <StarPurple positions="right-32 top-20 w-4" />
+          <StarPurple positions="right-32 top-20 w-4 hidden md:block" />
           <StarPurple positions="-left-20 -bottom-10 w-4" />
 
           <h2 className="second_font text-center sm:text-left font-bold text-2xl md:text-4xl">
