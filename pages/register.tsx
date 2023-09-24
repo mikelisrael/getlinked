@@ -252,7 +252,7 @@ const Register = () => {
               Please review your registration details before submitting
             </em>
 
-            <label className="!mt-3 text-sm flex">
+            <label className="!mt-3 md:text-sm flex">
               <div className="stacked">
                 <div className="p-2 w-4 h-4 border-2 rounded-sm border-white" />
                 {/* white border checkbox */}
