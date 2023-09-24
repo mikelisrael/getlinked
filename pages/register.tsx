@@ -10,6 +10,7 @@ import { FaAngleDown } from "react-icons/fa6";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
+import ScrollToTop from "@/utils/ScrollToTop";
 
 const Register = () => {
   const [open, setOpen] = useState(false);
@@ -24,11 +25,6 @@ const Register = () => {
   });
   const [emailMsg, setEmailMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // scoll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [window.location.pathname]);
 
   const handleChange = (
     e:
@@ -100,7 +96,7 @@ const Register = () => {
         <title>Register | Getlinked</title>
       </Head>
 
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
 
       <div className="isolate relative universal_x grid md:grid-cols-[1fr,auto] items-center gap-5 md:gap-10 pt-12 pb-24">
         <StarPurple positions="left-5 top-10" />

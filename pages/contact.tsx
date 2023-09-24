@@ -14,6 +14,7 @@ import {
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
+import ScrollToTop from "@/utils/ScrollToTop";
 
 const Contact = () => {
   const [formFields, setFormFields] = useState({
@@ -24,11 +25,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailMsg, setEmailMsg] = useState("");
-
-  // scoll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [window.location.pathname]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -93,6 +89,8 @@ const Contact = () => {
       <Head>
         <title>Contact | Getlinked</title>
       </Head>
+
+      <ScrollToTop />
 
       <div className="isolate relative universal_x grid md:grid-cols-[40%,60%] lg:grid-cols-2 items-center gap-10 pt-12 pb-24">
         <StarPurple positions="left-0 top-10" />
