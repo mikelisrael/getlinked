@@ -95,7 +95,7 @@ const Register = () => {
     !formFields.privacy_poclicy_accepted;
 
   return (
-    <>
+    <div className="overflow-hidden">
       <Head>
         <title>Register | Getlinked</title>
       </Head>
@@ -333,7 +333,7 @@ const Register = () => {
           </Modal>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -89,7 +89,7 @@ const Contact = () => {
     !formFields.message;
 
   return (
-    <>
+    <div className="overflow-hidden">
       <Head>
         <title>Contact | Getlinked</title>
       </Head>
@@ -240,7 +240,7 @@ const Contact = () => {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
