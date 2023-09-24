@@ -8,7 +8,7 @@
 /* import clash display font from local public/fonts */
 @font-face {
   font-family: "ClashDisplay";
-  src: url("../public/fonts/ClashDisplay-Semibold.ttf");
+  src: url("https://getlinked-lime.vercel.app/fonts/ClashDisplay-Semibold.otf");
   /* font-weight: 600;
   font-style: normal;
   font-display: swap; */
