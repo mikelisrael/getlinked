@@ -5,16 +5,13 @@ import { Checkbox, Modal } from "@mui/material";
 import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
-import { scrollToTop } from "@/utils/scrollToTop";
 
 const Register = () => {
-  scrollToTop();
-
   const [open, setOpen] = useState(false);
   const [formFields, setFormFields] = useState({
     email: "",
@@ -27,6 +24,11 @@ const Register = () => {
   });
   const [emailMsg, setEmailMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // scoll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (
     e:

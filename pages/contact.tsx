@@ -4,7 +4,7 @@ import isValidEmail from "@/utils/isValidEmail";
 
 import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaFacebookF,
   FaInstagram,
@@ -14,11 +14,8 @@ import {
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
-import { scrollToTop } from "@/utils/scrollToTop";
 
 const Contact = () => {
-  scrollToTop();
-
   const [formFields, setFormFields] = useState({
     first_name: "",
     phone_number: "",
@@ -27,6 +24,11 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailMsg, setEmailMsg] = useState("");
+
+  // scoll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
