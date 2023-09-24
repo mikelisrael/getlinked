@@ -1,7 +1,6 @@
 import PurpleFlare from "@/components/general/PurpleFlare";
 import { StarGray, StarPurple, StarWhite } from "@/components/general/Stars";
 import isValidEmail from "@/utils/isValidEmail";
-import scrollToTop from "@/utils/scrollToTop";
 import { Checkbox, Modal } from "@mui/material";
 import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
@@ -11,6 +10,7 @@ import { FaAngleDown } from "react-icons/fa6";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
+import { scrollToTop } from "@/utils/scrollToTop";
 
 const Register = () => {
   scrollToTop();

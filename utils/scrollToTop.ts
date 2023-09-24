@@ -1,6 +1,6 @@
 import React from "react";
 
-const scrollToTop = () => {
+export const scrollToTop = () => {
   const ScrollToTop = (): void => {
     React.useEffect(() => {
       window.scrollTo(0, 0);
@@ -11,5 +11,3 @@ const scrollToTop = () => {
 
   return ScrollToTop;
 };
-
-export default scrollToTop;
