@@ -28,7 +28,7 @@ const Register = () => {
   // scoll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [window.location.pathname]);
 
   const handleChange = (
     e:

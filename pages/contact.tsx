@@ -28,7 +28,7 @@ const Contact = () => {
   // scoll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [window.location.pathname]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
