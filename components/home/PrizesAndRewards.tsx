@@ -33,7 +33,7 @@ const PrizesAndRewards = () => {
           <StarWhite positions="-right-10 bottom-80" />
           <StarGray positions="right-0 -bottom-10" />
         </section>
-        <section className="relative" data-aos="fade-in">
+        <section className="relative" data-aos="zoom-in">
           <Image src="/img/trophy.png" alt="trophy" width={548} height={482} />
           <PurpleFlare positions="-right-0 -top-[8rem]" />
         </section>

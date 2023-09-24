@@ -44,14 +44,14 @@ const PrivatePolicyAndTerms = () => {
             </span>
 
             <ul className="space-y-3">
-              <li data-aos="fade-right" className="flex gap-5">
+              <li data-aos="fade-right" className="flex gap-3">
                 <span>
                   <Image
                     src="/icons/check.png"
                     alt="check"
                     width={17}
                     height={17}
-                    className="w-7"
+                    className="w-9"
                   />
                 </span>
                 <span className="-translate-y-1">
@@ -60,14 +60,14 @@ const PrivatePolicyAndTerms = () => {
                 </span>
               </li>
 
-              <li data-aos="fade-right" className="flex gap-5">
+              <li data-aos="fade-right" className="flex gap-3">
                 <span>
                   <Image
                     src="/icons/check.png"
                     alt="check"
                     width={17}
                     height={17}
-                    className="w-7"
+                    className="w-9"
                   />
                 </span>
                 <span className="-translate-y-1">

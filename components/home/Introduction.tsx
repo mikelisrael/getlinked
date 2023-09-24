@@ -6,7 +6,7 @@ const Introduction = () => {
     <div className="border-t border-b border-gray-700">
       <div className="universal_x grid sm:grid-cols-2 gap-y-5 gap-x-10 items-center py-10 md:py-20">
         <section
-          data-aos="fade-in"
+          data-aos="zoom-in"
           className="relative isolate justify-self-center md:justify-self-auto"
         >
           <StarPurple positions="-left-10 top-40" />

@@ -7,12 +7,12 @@ const JudgingCriteria = () => {
     <div className="border-t border-b border-gray-700">
       <div className="isolate universal_x grid sm:grid-cols-2 gap-y-5 gap-x-10 items-center py-10 md:py-20">
         <section
-          data-aos="fade-in"
+          data-aos="zoom-in"
           className="relative justify-self-center md:justify-self-auto"
         >
           <Image
             src="/img/man_and_girl.png"
-            alt="lightbulb"
+            alt="man and girl"
             width={710}
             height={622}
             className="w-[200%]"

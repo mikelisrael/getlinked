@@ -168,6 +168,7 @@ const Header = () => {
           </div>
 
           <Image
+            data-aos="fade-right"
             src="/img/tech_boy.png"
             width={1000}
             height={1000}

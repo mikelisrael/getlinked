@@ -7,7 +7,7 @@ const RulesAndGuidelines = () => {
     <div className="border-t border-b border-gray-700">
       <div className="isolate universal_x reverse grid sm:grid-cols-2 gap-x-10 gap-y-5 items-center py-10 md:py-20">
         <section
-          data-aos="fade-in"
+          data-aos="zoom-in"
           className="relative justify-self-center md:justify-self-auto"
         >
           {" "}

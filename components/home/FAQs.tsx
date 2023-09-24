@@ -84,13 +84,14 @@ const FAQs = () => {
         </section>
 
         <section
-          data-aos="fade-in"
+          data-aos="zoom-in"
           className="relative justify-self-center md:justify-self-auto"
         >
           <StarPurple positions="left-1/2 bottom-50" />
           <StarWhite positions="right-60 bottom-0" />
 
           <Image
+            data-aos="fade-in"
             src="/img/question_man.png"
             alt="curious man"
             width={710}
