@@ -1,6 +1,7 @@
 import PurpleFlare from "@/components/general/PurpleFlare";
 import { StarPurple, StarWhite } from "@/components/general/Stars";
 import isValidEmail from "@/utils/isValidEmail";
+import scrollToTop from "@/utils/scrollToTop";
 import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
 import { useState } from "react";
@@ -15,6 +16,8 @@ import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
 
 const Contact = () => {
+  scrollToTop();
+
   const [formFields, setFormFields] = useState({
     first_name: "",
     phone_number: "",

@@ -1,6 +1,7 @@
 import PurpleFlare from "@/components/general/PurpleFlare";
 import { StarGray, StarPurple, StarWhite } from "@/components/general/Stars";
 import isValidEmail from "@/utils/isValidEmail";
+import scrollToTop from "@/utils/scrollToTop";
 import { Checkbox, Modal } from "@mui/material";
 import { LeapFrog } from "@uiball/loaders";
 import Head from "next/head";
@@ -12,6 +13,8 @@ import { toast } from "react-toastify";
 import phoneMask from "../utils/phoneMask";
 
 const Register = () => {
+  scrollToTop();
+
   const [open, setOpen] = useState(false);
   const [formFields, setFormFields] = useState({
     email: "",
@@ -94,6 +97,8 @@ const Register = () => {
       <Head>
         <title>Register | Getlinked</title>
       </Head>
+
+      {/* <ScrollToTop /> */}
 
       <div className="isolate relative universal_x grid md:grid-cols-[1fr,auto] items-center gap-5 md:gap-10 pt-12 pb-24">
         <StarPurple positions="left-5 top-10" />

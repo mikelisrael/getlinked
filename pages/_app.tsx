@@ -5,27 +5,11 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  // Scroll to the top whenever the route changes
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scrollTo(0, 0);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
-
   // initialize the animation library
   useEffect(() => {
     Aos.init({
