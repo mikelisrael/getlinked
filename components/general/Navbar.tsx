@@ -67,7 +67,9 @@ const Navbar = () => {
           >
             Timeline
           </li>
-          <li className="hover:text-primaryPurple cursor-pointer">Overview</li>
+          <li className="hover:text-primaryPurple cursor-pointer">
+            <Link href="/">Overview</Link>
+          </li>
           <li
             className="hover:text-primaryPurple cursor-pointer"
             onClick={() => scrollToId("FAQs")}
@@ -129,7 +131,13 @@ const Navbar = () => {
           >
             Timeline
           </li>
-          <li className="text-sm hover:text-primaryPurple cursor-pointer">
+          <li
+            className="text-sm hover:text-primaryPurple cursor-pointer"
+            onClick={() => {
+              setIsOpen(false);
+              router.push("/");
+            }}
+          >
             Overview
           </li>
           <li

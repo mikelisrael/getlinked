@@ -74,7 +74,7 @@ const Footer = () => {
               Timeline
             </li>
             <li className="hover:text-primaryPurple cursor-pointer">
-              Overview
+              <Link href="/">Overview</Link>
             </li>
             <li
               className="hover:text-primaryPurple cursor-pointer"
