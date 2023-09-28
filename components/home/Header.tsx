@@ -14,7 +14,7 @@ const Header = () => {
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();
-      const targetDate = new Date("September 26, 2023 00:00:00");
+      const targetDate = new Date("November 1, 2023 00:00:00");
 
       const difference = targetDate.getTime() - now.getTime();
       let timeLeft = {
