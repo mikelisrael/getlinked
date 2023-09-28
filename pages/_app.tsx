@@ -8,6 +8,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { Slide, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps }: AppProps) {
   // initialize the animation library
@@ -19,8 +20,6 @@ export default function App({ Component, pageProps }: AppProps) {
       // offset: 80,
     });
   }, []);
-
-  // scroll to th
 
   return (
     <>
@@ -114,6 +113,8 @@ export default function App({ Component, pageProps }: AppProps) {
         transition={Slide}
         theme="colored"
       />
+
+      <Analytics />
     </>
   );
 }
