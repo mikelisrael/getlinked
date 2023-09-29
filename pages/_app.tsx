@@ -1,5 +1,9 @@
 import Footer from "@/components/general/Footer";
-import Navbar from "@/components/general/Navbar";
+// render navabar with next dynamic
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("@/components/general/Navbar"), {
+  ssr: false,
+});
 import "@/styles/globals.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
